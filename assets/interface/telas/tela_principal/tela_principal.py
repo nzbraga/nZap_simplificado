@@ -6,14 +6,15 @@ from assets.interface.telas.tela_mensagem.tela_mensagem import tela_mensagem
 from assets.interface.telas.tela_ajuda.tela_ajuda import tela_ajuda
 
 def mostrar_tela(frame):
-
+    if not raiz_principal.winfo_exists():
+        return  # Evita o erro caso a janela tenha sido destruída
+    
     frame.update_idletasks()  # Atualiza as dimensões do frame
     largura = frame.winfo_reqwidth()
     altura = frame.winfo_reqheight()
-    
+
     raiz_principal.geometry(f"{largura}x{altura}")  
     frame.tkraise()
-
 
 # Criar janela principal
 raiz_principal = tk.Tk()
@@ -42,7 +43,6 @@ menu_bar.add_command(label="Mensagem", command=lambda: mostrar_tela(frame2))
 menu_bar.add_command(label="Ajuda", command=lambda: mostrar_tela(frame3))
 
 # Mostrar frame inicial
-
 mostrar_tela(frame1)
 
 raiz_principal.mainloop()
