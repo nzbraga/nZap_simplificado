@@ -2,10 +2,12 @@ import re
 import sys
 import time
 import keyboard
-from assets.func.uteis.popUp import popUp
-from assets.func.sessao_whatsapp.config_webdriver.config_webdriver import enviar_mensagem
 import tkinter as tk
 from tkinter import messagebox
+
+from assets.func.uteis.popUp import popUp
+from assets.func.sessao_whatsapp.config_webdriver.config_webdriver import enviar_mensagem
+from assets.interface.telas.tela_ajuda.tela_ajuda import carregar_destinatario
 
 interromper = False
 
@@ -26,6 +28,7 @@ def substituir_variaveis(mensagem, contato):
 
 
 def montar_msg(contatos, mensagem):
+    destinatario = carregar_destinatario()
     if not contatos:
         popUp("Nenhum contato selecionado.")
         return
@@ -49,7 +52,7 @@ def montar_msg(contatos, mensagem):
         
         try: 
             mensagem_completa = f"{mensagem_personalizada}"        
-            enviar_mensagem(contato["contato"], mensagem_completa)
+            enviar_mensagem(contato[destinatario], mensagem_completa)
             contador += 1
         except:
             popUp("Número não encontrado\nVerifique se o campo 'contato' existe\n\nA mensagem será enviada para o número no campo 'contato'")

@@ -23,7 +23,7 @@ def criar_tela_inicial(raiz_principal):
     frame_inicial = tk.Frame(raiz_principal)
     
     tk.Label(frame_inicial, text=f"{usuario}, BEM VINDO!", font=("Arial", 14)).pack(pady=5)
-    tk.Label(frame_inicial, text=f"{usuario}, Teste update", font=("Arial", 14)).pack(pady=5)
+
     # 🔥 Criar os widgets ANTES de chamá-los
     status_label = tk.Label(frame_inicial, font=("Arial", 14))
     status_label.pack(pady=(10, 5))
