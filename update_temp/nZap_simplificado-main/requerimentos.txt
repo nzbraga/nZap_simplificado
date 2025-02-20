@@ -1,4 +1,0 @@
-watchdog
-selenium
-openpyxl
-pandas
