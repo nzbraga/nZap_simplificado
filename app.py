@@ -12,7 +12,7 @@ def verificar_atualizacoes():
         subprocess.Popen(["python", "updater.py"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
 def main():
-    #verificar_atualizacoes()
+    verificar_atualizacoes()
     mostrar_tela(frame3)
 
 if __name__ == "__main__":
