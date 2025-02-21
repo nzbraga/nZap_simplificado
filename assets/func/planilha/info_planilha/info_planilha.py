@@ -15,7 +15,7 @@ def selecionar_arquivo():
 
     if not arquivo_selecionado:
         print("Nenhum arquivo selecionado")
-        popUp("Erro: Nenhuma planilha foi selecionada.")  # Mostra uma mensagem na interface
+        popUp("Nenhuma planilha foi selecionada.")  # Mostra uma mensagem na interface
         return None  # Retorna None para indicar erro
 
     return arquivo_selecionado
@@ -30,7 +30,7 @@ def info_planilha(index_pagina):
 
     if index_pagina == -1:
         print("Nenhuma página selecionada")
-        popUp("Erro: Nenhuma página foi selecionada.")
+        popUp("Nenhuma página foi selecionada.")
         return None
     
     try:
@@ -58,7 +58,7 @@ def listar_paginas():
         return nomes_paginas
     except FileNotFoundError:
         print("Erro: Arquivo não encontrado.")
-        popUp("Erro: Arquivo não encontrado.")
+        popUp("Arquivo não encontrado.")
         return []
     except Exception as e:
         print(f"Erro inesperado: {e}")        
