@@ -6,10 +6,13 @@ from assets.interface.telas.tela_principal.tela_principal import mostrar_tela, f
 
 def verificar_atualizacoes():
     """Roda o updater em segundo plano para evitar travamento."""
+    print('Verificando atualizacoes...')
     if sys.platform == "win32":
         subprocess.Popen(["python", "updater.py"], creationflags=subprocess.CREATE_NO_WINDOW)
+        print('subprocess...')
     else:
         subprocess.Popen(["python", "updater.py"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        print('subprocess...')
 
 def main():
     verificar_atualizacoes()

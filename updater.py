@@ -12,7 +12,8 @@ APP_EXECUTAVEL = "app.exe"  # Nome do executável gerado pelo PyInstaller
 TEMP_FOLDER = "update_temp"
 
 def baixar_atualizacao():
-    """Baixa a versão mais recente do app do GitHub"""
+    print(f"Versão atual do app: {sys.version}")
+    print("""Baixa a versão mais recente do app do GitHub""")
     url = f"https://github.com/{GITHUB_REPO}/archive/{BRANCH}.zip"
     zip_path = os.path.join(TEMP_FOLDER, "update.zip")
 
@@ -28,13 +29,13 @@ def baixar_atualizacao():
     return zip_path
 
 def extrair_atualizacao(zip_path):
-    """Extrai os arquivos baixados"""
+    print("""Extrai os arquivos baixados""")
     with zipfile.ZipFile(zip_path, 'r') as zip_ref:
         zip_ref.extractall(TEMP_FOLDER)
     print("Arquivos extraídos!")
 
 def substituir_arquivos():
-    """Substitui os arquivos do app antigo pelos novos"""
+    print("""Substitui os arquivos do app antigo pelos novos""")
     pasta_extraida = os.path.join(TEMP_FOLDER, f"repositorio-{BRANCH}")
     
     for item in os.listdir(pasta_extraida):
@@ -51,7 +52,7 @@ def substituir_arquivos():
     print("Arquivos atualizados!")
 
 def reiniciar_app():
-    """Reinicia o aplicativo atualizado"""
+    print("""Reinicia o aplicativo atualizado""")
     print("Reiniciando app...")
     os.execv(APP_EXECUTAVEL, [APP_EXECUTAVEL])
 
