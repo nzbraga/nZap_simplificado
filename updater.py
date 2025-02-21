@@ -12,7 +12,6 @@ APP_EXECUTAVEL = "app.exe"  # Nome do executável gerado pelo PyInstaller
 TEMP_FOLDER = "update_temp"
 
 def baixar_atualizacao():
-    print(f"Versão atual do app: {sys.version}")
     print("""Baixa a versão mais recente do app do GitHub""")
     url = f"https://github.com/{GITHUB_REPO}/archive/{BRANCH}.zip"
     zip_path = os.path.join(TEMP_FOLDER, "update.zip")
