@@ -1,34 +1,32 @@
 import re
-import sys
-import time
-import keyboard
-import tkinter as tk
 from tkinter import messagebox
+import time
 
 from assets.func.uteis.popUp import popUp
 from assets.func.sessao_whatsapp.config_webdriver.config_webdriver import enviar_mensagem
-from assets.interface.telas.tela_ajuda.tela_ajuda import carregar_destinatario
-
-interromper = False
+from assets.func.mensagem.saudacao.saudacao import definir_saudacao
 
 def substituir_variaveis(mensagem, contato):
-    """Substitui palavras iniciadas com @ pelos valores correspondentes do dicionário contato."""
+    """
+    Substitui palavras iniciadas com @ pelos valores correspondentes do dicionário contato.
+    Lança um erro e para a execução se uma chave não for encontrada.
+    """
     def substituir(match):
-        chave = match.group(1).lower()  # Converte a chave para minúsculas
+        chave = match.group(1)
         if chave not in contato:
-            popUp(f"Erro: chave '{chave}' não encontrada para o contato {contato.get('nome', 'Desconhecido')}.")
-            raise ValueError(f"Erro: chave '{chave}' não encontrada para o contato {contato.get('nome', 'Desconhecido')}.")
+            raise popUp(f"Erro: chave '{chave}' não encontrada para o contato {contato.get('nome', 'Desconhecido')}.")
+            #raise ValueError(f"Erro: chave '{chave}' não encontrada para o contato {contato.get('nome', 'Desconhecido')}.")
         return contato[chave]
-
+    
     try:
         return re.sub(r"@(\w+)", substituir, mensagem)
-    except ValueError as e:
-        print(e)
+    except ValueError:
         return None  # Retorna None para indicar erro
 
+limitador = 0
 
-def montar_msg(contatos, mensagem):
-    destinatario = carregar_destinatario()
+def montar_msg(contatos, mensagem, destinatario= 'contato', limite=5):
+    global limitador
     if not contatos:
         popUp("Nenhum contato selecionado.")
         return
@@ -36,30 +34,29 @@ def montar_msg(contatos, mensagem):
     if not mensagem or not mensagem.strip():
         popUp("Mensagem vazia.")
         return
-    
-    contador = 0  # Contador local para controle de envios
-    
+  
+      
     for contato in contatos:
-        time.sleep(2)
-        if keyboard.is_pressed("esc"):  # Checagem a cada iteração
-            print("\n🛑 Envio interrompido pelo usuário!")
-            return  # Sai imediatamente do loop
-        
         mensagem_personalizada = substituir_variaveis(mensagem, contato)
+           
         if mensagem_personalizada is None:
             popUp(f"Erro ao processar mensagem para {contato.get('nome', 'Desconhecido')}.")
             return  # Interrompe a execução se houver erro
         
-        try: 
-            mensagem_completa = f"{mensagem_personalizada}"        
-            enviar_mensagem(contato[destinatario], mensagem_completa)
-            contador += 1
-        except:
-            popUp("Número não encontrado\nVerifique se o campo 'contato' existe\n\nA mensagem será enviada para o número no campo 'contato'")
+        if not contato.get(destinatario):  # Verifica se a chave não existe ou está vazia
+            popUp(f"Contato não encontrado.\nConfirme se o campo '{destinatario}' existe no arquivo Excel.")
         
-        if contador >= 5:
-            resposta = messagebox.askyesno("Confirmação", "Foram enviadas 5 mensagens, deseja continuar?")
-            if resposta:
-                contador = 0  # Reseta o contador para mais 5 envios
-            else:
+        mensagem_completa = f"{mensagem_personalizada}"
+        print(f"contato: {contato[destinatario]}\nmensagem: {mensagem_completa}")
+        enviar_mensagem(contato[destinatario], mensagem_completa)
+        print('pausa de 3s')
+        time.sleep(3)
+        
+        limitador += 1
+        if limitador % limite == 0:  # A cada 'limite' mensagens enviadas, pede confirmação
+            resposta = messagebox.askyesno("Confirmação", f"{limite} mensagens enviadas, deseja continuar?")
+            if not resposta:
+                print("Usuário optou por parar o envio.")
                 return
+            
+    popUp("Mensagens enviadas com sucesso.")  

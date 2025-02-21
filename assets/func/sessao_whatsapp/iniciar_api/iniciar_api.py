@@ -42,22 +42,29 @@ def start_whatsapp(client):
             config_webdriver(True, client)
             whatsapp_api.api_logada = check_login(True)
             
+            
             # se nao estiver logado abre a janela visivel
             if not whatsapp_api.api_logada:
                 
+                
                 config_webdriver(False, client)
                 whatsapp_api.api_logada = check_login(False)
+                
                 # quando estiver logado fecha a janela e abre janela invisivel
                 if whatsapp_api.api_logada:
+                    
                     config_webdriver(True, client)
                     whatsapp_api.api_logada = check_login(True)
+                    
                     # confira janela aberta e finaliza
                     if whatsapp_api.api_logada:
+                        
                         
                         popUp_janela.after(100, popUp_janela.destroy)  
                         popUp("WhatsApp iniciado")                
                         return True
                     else:
+                        
                         
                         popUp_janela.after(100, popUp_janela.destroy)  
                         popUp("Erro ao logar WhatsApp")                
@@ -71,17 +78,16 @@ def start_whatsapp(client):
             popUp_janela.after(100, popUp_janela.destroy)  
             popUp('Após conectar o WhatsApp, pressione OK')
             popUp_janela = popUp_bar("Iniciando login no WhatsApp...")
-            whatsapp_api.api_logada = check_login(False)
+            whatsapp_api.api_logada = check_login(True)
+            
+            config_webdriver(True, client)
 
             if whatsapp_api.api_logada:
-                config_webdriver(True, client)
-                whatsapp_api.api_logada = check_login(True)
+                popUp_janela.after(100, popUp_janela.destroy)
+                popUp("WhatsApp iniciado")
+                return True
+            popUp_janela.after(100, popUp_janela.destroy)  
 
-                if whatsapp_api.api_logada:
-                    popUp_janela.after(100, popUp_janela.destroy)  
-                    popUp("WhatsApp iniciado")
-                    return True
-
-        popUp_janela.after(100, popUp_janela.destroy)  
+        
         
     threading.Thread(target=login_whatsapp, daemon=True).start()
