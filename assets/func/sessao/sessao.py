@@ -11,4 +11,4 @@ def sessao_id():
     return 'sessao_teste_id'
 
 def sessao_nome():
-    return 'versao_teste'
+    return 'versao\nteste'

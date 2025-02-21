@@ -2,7 +2,7 @@ import os
 import subprocess
 import sys
 
-from assets.interface.telas.tela_principal.tela_principal import mostrar_tela, frame1, frame3
+from assets.interface.telas.tela_principal.tela_principal import mostrar_tela, frame3
 
 def verificar_atualizacoes():
     """Roda o updater em segundo plano para evitar travamento."""
