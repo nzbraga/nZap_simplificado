@@ -346,9 +346,17 @@
   ('assets.func.mensagem.definir_origem.definir_origem',
    'C:\\gitHub\\nZap_simplificado\\assets\\func\\mensagem\\definir_origem\\definir_origem.py',
    'PYMODULE'),
+  ('assets.func.mensagem.listar_mensagens', '-', 'PYMODULE'),
+  ('assets.func.mensagem.listar_mensagens.listar_mensagens',
+   'C:\\gitHub\\nZap_simplificado\\assets\\func\\mensagem\\listar_mensagens\\listar_mensagens.py',
+   'PYMODULE'),
   ('assets.func.mensagem.montar_msg', '-', 'PYMODULE'),
   ('assets.func.mensagem.montar_msg.montar_msg',
    'C:\\gitHub\\nZap_simplificado\\assets\\func\\mensagem\\montar_msg\\montar_msg.py',
+   'PYMODULE'),
+  ('assets.func.mensagem.saudacao', '-', 'PYMODULE'),
+  ('assets.func.mensagem.saudacao.saudacao',
+   'C:\\gitHub\\nZap_simplificado\\assets\\func\\mensagem\\saudacao\\saudacao.py',
    'PYMODULE'),
   ('assets.func.planilha', '-', 'PYMODULE'),
   ('assets.func.planilha.info_planilha', '-', 'PYMODULE'),
@@ -378,9 +386,19 @@
    'PYMODULE'),
   ('assets.interface', '-', 'PYMODULE'),
   ('assets.interface.telas', '-', 'PYMODULE'),
-  ('assets.interface.telas.tela_ajuda', '-', 'PYMODULE'),
-  ('assets.interface.telas.tela_ajuda.tela_ajuda',
-   'C:\\gitHub\\nZap_simplificado\\assets\\interface\\telas\\tela_ajuda\\tela_ajuda.py',
+  ('assets.interface.telas.tela_enviar', '-', 'PYMODULE'),
+  ('assets.interface.telas.tela_enviar.tela_enviar',
+   'C:\\gitHub\\nZap_simplificado\\assets\\interface\\telas\\tela_enviar\\tela_enviar.py',
+   'PYMODULE'),
+  ('assets.interface.telas.tela_enviar.uteis', '-', 'PYMODULE'),
+  ('assets.interface.telas.tela_enviar.uteis.obter_mensagem',
+   'C:\\gitHub\\nZap_simplificado\\assets\\interface\\telas\\tela_enviar\\uteis\\obter_mensagem.py',
+   'PYMODULE'),
+  ('assets.interface.telas.tela_enviar.uteis.opcoes_frequencia',
+   'C:\\gitHub\\nZap_simplificado\\assets\\interface\\telas\\tela_enviar\\uteis\\opcoes_frequencia.py',
+   'PYMODULE'),
+  ('assets.interface.telas.tela_enviar.uteis.salvar_mensagem',
+   'C:\\gitHub\\nZap_simplificado\\assets\\interface\\telas\\tela_enviar\\uteis\\salvar_mensagem.py',
    'PYMODULE'),
   ('assets.interface.telas.tela_inicial', '-', 'PYMODULE'),
   ('assets.interface.telas.tela_inicial.tela_inicial',
@@ -642,37 +660,9 @@
    'C:\\Program '
    'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.12_3.12.2544.0_x64__qbz5n2kfra8p0\\Lib\\ctypes\\__init__.py',
    'PYMODULE'),
-  ('ctypes._aix',
-   'C:\\Program '
-   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.12_3.12.2544.0_x64__qbz5n2kfra8p0\\Lib\\ctypes\\_aix.py',
-   'PYMODULE'),
   ('ctypes._endian',
    'C:\\Program '
    'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.12_3.12.2544.0_x64__qbz5n2kfra8p0\\Lib\\ctypes\\_endian.py',
-   'PYMODULE'),
-  ('ctypes.macholib',
-   'C:\\Program '
-   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.12_3.12.2544.0_x64__qbz5n2kfra8p0\\Lib\\ctypes\\macholib\\__init__.py',
-   'PYMODULE'),
-  ('ctypes.macholib.dyld',
-   'C:\\Program '
-   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.12_3.12.2544.0_x64__qbz5n2kfra8p0\\Lib\\ctypes\\macholib\\dyld.py',
-   'PYMODULE'),
-  ('ctypes.macholib.dylib',
-   'C:\\Program '
-   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.12_3.12.2544.0_x64__qbz5n2kfra8p0\\Lib\\ctypes\\macholib\\dylib.py',
-   'PYMODULE'),
-  ('ctypes.macholib.framework',
-   'C:\\Program '
-   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.12_3.12.2544.0_x64__qbz5n2kfra8p0\\Lib\\ctypes\\macholib\\framework.py',
-   'PYMODULE'),
-  ('ctypes.util',
-   'C:\\Program '
-   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.12_3.12.2544.0_x64__qbz5n2kfra8p0\\Lib\\ctypes\\util.py',
-   'PYMODULE'),
-  ('ctypes.wintypes',
-   'C:\\Program '
-   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.12_3.12.2544.0_x64__qbz5n2kfra8p0\\Lib\\ctypes\\wintypes.py',
    'PYMODULE'),
   ('dataclasses',
    'C:\\Program '
@@ -997,38 +987,6 @@
   ('json.scanner',
    'C:\\Program '
    'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.12_3.12.2544.0_x64__qbz5n2kfra8p0\\Lib\\json\\scanner.py',
-   'PYMODULE'),
-  ('keyboard',
-   'C:\\Users\\Jato '
-   'Gravações\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python312\\site-packages\\keyboard\\__init__.py',
-   'PYMODULE'),
-  ('keyboard._canonical_names',
-   'C:\\Users\\Jato '
-   'Gravações\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python312\\site-packages\\keyboard\\_canonical_names.py',
-   'PYMODULE'),
-  ('keyboard._darwinkeyboard',
-   'C:\\Users\\Jato '
-   'Gravações\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python312\\site-packages\\keyboard\\_darwinkeyboard.py',
-   'PYMODULE'),
-  ('keyboard._generic',
-   'C:\\Users\\Jato '
-   'Gravações\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python312\\site-packages\\keyboard\\_generic.py',
-   'PYMODULE'),
-  ('keyboard._keyboard_event',
-   'C:\\Users\\Jato '
-   'Gravações\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python312\\site-packages\\keyboard\\_keyboard_event.py',
-   'PYMODULE'),
-  ('keyboard._nixcommon',
-   'C:\\Users\\Jato '
-   'Gravações\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python312\\site-packages\\keyboard\\_nixcommon.py',
-   'PYMODULE'),
-  ('keyboard._nixkeyboard',
-   'C:\\Users\\Jato '
-   'Gravações\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python312\\site-packages\\keyboard\\_nixkeyboard.py',
-   'PYMODULE'),
-  ('keyboard._winkeyboard',
-   'C:\\Users\\Jato '
-   'Gravações\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python312\\site-packages\\keyboard\\_winkeyboard.py',
    'PYMODULE'),
   ('logging',
    'C:\\Program '

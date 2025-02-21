@@ -6,7 +6,7 @@ import zipfile
 import shutil
 
 # Configurações
-GITHUB_REPO = "/nzbraga/nZap_simplificado"
+GITHUB_REPO = "nzbraga/nZap_simplificado"
 BRANCH = "main"  # Ou outra branch específica
 APP_EXECUTAVEL = "app.exe"  # Nome do executável gerado pelo PyInstaller
 TEMP_FOLDER = "update_temp"
