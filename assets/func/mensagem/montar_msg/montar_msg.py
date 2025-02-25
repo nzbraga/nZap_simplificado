@@ -1,22 +1,31 @@
 import re
-from tkinter import messagebox
 import time
+from datetime import datetime
+from tkinter import messagebox
 
 from assets.func.uteis.popUp import popUp
 from assets.func.sessao_whatsapp.config_webdriver.config_webdriver import enviar_mensagem
-from assets.func.mensagem.saudacao.saudacao import definir_saudacao
+
+
+def formatar_valor(contato, chave):
+    valor = contato.get(chave)  # Obtém o valor de forma segura
+
+    if isinstance(valor, str):
+        return valor.upper()  # Retorna string com a primeira letra maiúscula
+    elif isinstance(valor, datetime):
+        return valor.strftime("%d/%m")  # Retorna data formatada como dia/mês
+    
+    return valor
 
 def substituir_variaveis(mensagem, contato):
-    """
-    Substitui palavras iniciadas com @ pelos valores correspondentes do dicionário contato.
-    Lança um erro e para a execução se uma chave não for encontrada.
-    """
+  
     def substituir(match):
         chave = match.group(1)
         if chave not in contato:
-            raise popUp(f"Erro: chave '{chave}' não encontrada para o contato {contato.get('nome', 'Desconhecido')}.")
+            raise popUp(f"Palavra chave: '{chave}' não encontrada!")
             #raise ValueError(f"Erro: chave '{chave}' não encontrada para o contato {contato.get('nome', 'Desconhecido')}.")
-        return contato[chave]
+        return formatar_valor(contato, chave)
+    
     
     try:
         return re.sub(r"@(\w+)", substituir, mensagem)
@@ -48,6 +57,7 @@ def montar_msg(contatos, mensagem, destinatario= 'contato', limite=5):
         
         mensagem_completa = f"{mensagem_personalizada}"
         print(f"contato: {contato[destinatario]}\nmensagem: {mensagem_completa}")
+
         enviar_mensagem(contato[destinatario], mensagem_completa)
         print('pausa de 3s')
         time.sleep(3)
